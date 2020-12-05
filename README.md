@@ -60,7 +60,7 @@ oc create secret generic valuesapi-properties --from-literal=SAMPLE_STORAGE_TYPE
 
 docker login -u="kdeif" -p="x" quay.io
 
-docker build -t quay.io/kdeif/sample-quarkus-app:1.0 -f Dockerfile.native  sample-quarkus-app
+docker build -t quay.io/kdeif/sample-quarkus-app:1.0 -f Dockerfile.native  .
 
 docker push quay.io/kdeif/sample-quarkus-app:1.0 
 
