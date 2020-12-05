@@ -1,8 +1,45 @@
-# OpenShift Serverless Operator
+# Serverless
+
+[Why and When you need to consider OpenShift Serverless](https://www.openshift.com/blog/why-and-when-you-need-to-consider-openshift-serverless)
+
+[Why choose Red Hat OpenShift Serverless?](https://www.redhat.com/en/topics/microservices/why-choose-openshift-serverless)
+
+# OpenShift Serverless
+
 [Install OpenShift Serverless Operator](https://www.redhat.com/en/blog/hands-introduction-openshift-serverless)
 
+[Serverless applications made faster and simpler with OpenShift Serverless GA](https://developers.redhat.com/blog/2020/04/30/serverless-applications-made-faster-and-simpler-with-openshift-serverless-ga/)
 
-#OpenShift Commands
+[Using Spring Cloud Functions with OpenShift Serverless](https://slacker.ro/2020/09/01/using-spring-cloud-functions-with-openshift-serverless/)
+
+
+# Quarkus 
+
+[Quarkus Information](http://saharsh.org/2020/02/04/enter-quarkus/)
+
+[Deploy Quarkus on OpenShift](https://access.redhat.com/documentation/en-us/red_hat_build_of_quarkus/1.7/html-single/deploying_quarkus_applications_on_red_hat_openshift_container_platform/index)
+
+[Building a Native Executable with Red Hat Build of Quarkus](https://access.redhat.com/documentation/en-us/red_hat_build_of_quarkus/1.7/html-single/building_a_native_executable_with_red_hat_build_of_quarkus/index)
+
+[Quarkus - Container Images](https://quarkus.io/guides/container-image)
+
+# Knative
+
+[Knative](https://knative.dev/)
+
+[kn cli](https://github.com/knative/client)
+
+
+# Videos
+
+[Red Hat Build of Quarkus 1.7 with OpenShift Serverless](https://www.youtube.com/watch?v=WS99MyypDzM)
+
+
+#
+[Quay](https://quay.io/repository/)
+
+
+# OpenShift Commands
 ```
 oc new-project samples
 
@@ -29,6 +66,7 @@ docker push quay.io/kdeif/sample-quarkus-app:1.0
 kn service create valuesapi --image quay.io/kdeif/sample-quarkus-app:1.0 --env-from secret:valuesapi-properties
 
 ```
+
 
 # Sample Quarkus Application
 
@@ -131,7 +169,3 @@ Following is an example flow to use the web service. **NOTE**: The `host:port` v
 
         curl -i -X DELETE \
                 localhost:8080/api/values/1
-
-## Companion Blog
-
-See my blog article [Enter Quarkus](http://saharsh.org/2020/02/04/enter-quarkus/) for a background on Quarkus and more information about this application.
