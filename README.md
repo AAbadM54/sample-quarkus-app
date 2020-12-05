@@ -35,7 +35,8 @@
 [Red Hat Build of Quarkus 1.7 with OpenShift Serverless](https://www.youtube.com/watch?v=WS99MyypDzM)
 
 
-#
+# Public Image Repository
+
 [Quay](https://quay.io/repository/)
 
 
