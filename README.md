@@ -1,3 +1,35 @@
+# OpenShift Serverless Operator
+[Install OpenShift Serverless Operator](https://www.redhat.com/en/blog/hands-introduction-openshift-serverless)
+
+
+#OpenShift Commands
+```
+oc new-project samples
+
+oc project samples
+
+oc new-app --name=valuesdb mysql-ephemeral -p DATABASE_SERVICE_NAME=valuesdb -p MYSQL_ROOT_PASSWORD=password -p MYSQL_USER=valsuser -p MYSQL_PASSWORD=password -p MYSQL_DATABASE=valsdb
+
+oc get pods
+
+oc rsh valuesdb-1-f6z9v bash -c "mysql -uvalsuser -ppassword valsdb"
+
+CREATE TABLE vals (id BIGINT AUTO_INCREMENT PRIMARY KEY, value VARCHAR(255) NOT NULL, date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+
+show tables;
+
+oc create secret generic valuesapi-properties --from-literal=SAMPLE_STORAGE_TYPE=persistent --from-literal=QUARKUS_DATASOURCE_URL="jdbc:mysql://valuesdb/valsdb" --from-literal=QUARKUS_DATASOURCE_USERNAME=valsuser --from-literal=QUARKUS_DATASOURCE_PASSWORD=password
+
+docker login -u="kdeif" -p="x" quay.io
+
+docker build -t quay.io/kdeif/sample-quarkus-app:1.0 -f Dockerfile.native  sample-quarkus-app
+
+docker push quay.io/kdeif/sample-quarkus-app:1.0 
+
+kn service create valuesapi --image quay.io/kdeif/sample-quarkus-app:1.0 --env-from secret:valuesapi-properties
+
+```
+
 # Sample Quarkus Application
 
 ## Description
